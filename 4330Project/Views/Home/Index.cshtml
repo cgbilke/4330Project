@@ -1,31 +1,51 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<body class="vertical-center text-center">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Smith Consulting Inc.</h1>
+        <p class="lead"> We have created an online system to help analyze documents for classification purposes and to meet the technical publication needs of our clients. </p>
+        <p class="lead">
+            <a href="About" class="btn btn-lg btn-secondary">Check It Out!</a>
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    </main>
+
+
+</body>
+<style type="text/css">
+
+    /* Background Color*/
+    body {
+        background: #333 !important;
+        color: #fff !important;
+    }
+
+    /* Links */
+    a,
+    a:focus,
+    a:hover {
+        color: #fff;
+    }
+    
+
+    .vertical-center {
+        min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+        min-height: 100vh; /* These two lines are counted as one :-)       */
+        display: flex;
+        align-items: center;
+    }
+
+    /* Custom default button */
+    .btn-secondary,
+    .btn-secondary:hover,
+    .btn-secondary:focus {
+        color: #fff;
+        text-shadow: none; /* Prevent inheritance from `body` */
+        background-color: #515151;
+        border: .05rem solid #515151;
+    }
+</style>
