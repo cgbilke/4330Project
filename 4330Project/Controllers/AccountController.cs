@@ -170,7 +170,8 @@ namespace _4330Project.Controllers
                     {
                         if (!Roles.RoleExists("Database Administrator"))
                             Roles.CreateRole("Database Administrator");
-                        Roles.AddUserToRole(user.ToString(), "Database Administrator");
+                        if (!Roles.IsUserInRole("Database Administrator"))
+                            Roles.AddUserToRole(user.UserName, "Database Administrator");
                     }
                     return RedirectToAction("Index", "Home");
                 }
