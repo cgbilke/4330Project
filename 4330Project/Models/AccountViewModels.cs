@@ -79,6 +79,14 @@ namespace _4330Project.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Register As Administrator")]
+        public bool IsAdministrator { get; set; }
+
+        // public string CorrectAdminKey = "ADMIN";
+        [Display(Name = "Administrator Key")]
+        // [Compare("Password", ErrorMessage = "Incorrect Administrator Key.")]
+        public string AdminKey { get; set; }
     }
 
     public class ResetPasswordViewModel
