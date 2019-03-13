@@ -178,10 +178,47 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ResourcesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AzureModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AzureModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AzureModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AzureModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuildVersion.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ErrorLog.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProjectDatabaseModel.Context.cs">
@@ -199,6 +236,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Resource.cs">
+      <DependentUpon>AzureModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -211,6 +251,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\AzureModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AzureModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\ProjectDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
@@ -229,6 +279,13 @@
     </EntityDeploy>
     <Content Include="Models\ProjectDatabaseModel.edmx.diagram">
       <DependentUpon>ProjectDatabaseModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\AzureModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AzureModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AzureModel.edmx.diagram">
+      <DependentUpon>AzureModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\4330WebApp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -276,6 +333,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Resources\Create.cshtml" />
+    <Content Include="Views\Resources\Delete.cshtml" />
+    <Content Include="Views\Resources\Details.cshtml" />
+    <Content Include="Views\Resources\Edit.cshtml" />
+    <Content Include="Views\Resources\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
