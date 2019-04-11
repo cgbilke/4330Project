@@ -23,6 +23,27 @@ namespace _4330Project.Controllers
             IDictionary<string, int> document_keywords = new Dictionary<string, int>();
 
             try {
+                //Creating Objects needed for later use
+                //for file, may need to find Azure DB location if can't pass file to arguments
+                object file = newFileName;
+                object varFalseValue = false;
+                object varTrueValue = true;
+                object varMissing = Type.Missing;
+                string varText;
+
+                //Create a reference to our MS Word application
+                Microsoft.Office.Interop.Word.Application varWord 
+                    = new Microsoft.Office.Interop.Word.Application();
+                //Creates a reference to a MS Word document
+                Microsoft.Office.Interop.Word.Document varDoc 
+                    = new varword.Documents.Open(ref file, ref varMissing, 
+                    ref varFalseValue,
+                    ref varMissing, ref varMissing, ref varMissing, ref varMissing,
+                    ref varMissing, ref varMissing, ref varMissing,
+                    ref varMissing, ref varMissing, ref varMissing, ref varMissing, 
+                    ref varMissing, ref varMissing);
+
+                varDoc.Activate();
                 //Implement parsing of Word document here
 
                 if(document_keywords.containsKey(word)) {
