@@ -27,7 +27,7 @@ namespace _4330Project.Controllers
          * location and then converted the document into a single string to be parsed/cleaned up*/ 
         private string convertDocToString(string docPath) { 
             //we're going to read the contents of a file. Because of Azure stuff, I'm unsure of how to get the proper document pathing. 
-            if (!File.Exists(path))
+            if (!File.Exists(docPath))
             {
                 //Throw an error if it is unable to find a particular document
                 throw new System.Exception("File not Found.");
