@@ -165,8 +165,8 @@ namespace _4330Project.Controllers
                     m.Body = string.Format("Dear {0} <BR/>Thank you for registering. Please click on the link below to complete your registration: <a href=\"{1}\" title=\"User Email Confirm\">{1}</a>", user.UserName, Url.Action("ConfirmEmail", "Account", new { userId = user.Id, Email = user.Email }, Request.Url.Scheme));
                     m.IsBodyHtml = true;
                     System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp-mail.outlook.com");
-                    smtp.Credentials = new System.Net.NetworkCredential("hhah1@lsu.edu", "Hope&rkatk01200");
-
+                    smtp.Credentials = new System.Net.NetworkCredential("hhah1@lsu.edu", "**password**");
+                    smtp.ServerCertificateValidationCallback = () => true; //Solution for client certification error
                     smtp.EnableSsl = true;
                     smtp.Send(m);
                     return RedirectToAction("Confirm", "Account", new { Email = user.Email });*/
@@ -174,9 +174,9 @@ namespace _4330Project.Controllers
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                      var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                     //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     if (model.IsAdministrator)
                     {
                         if (!Roles.RoleExists("Database Administrator"))
@@ -184,8 +184,16 @@ namespace _4330Project.Controllers
                         if (!Roles.IsUserInRole("Database Administrator"))
                             Roles.AddUserToRole(user.UserName, "Database Administrator");
                     }
+
+                    ViewBag.Link = callbackUrl;
+                    //return View("DisplayEmail");
+                    
                     return RedirectToAction("Index", "Home");
                 }
+                /*else
+                {
+                    AddErrors(result);
+                }*/
                 AddErrors(result);
                 
             }
