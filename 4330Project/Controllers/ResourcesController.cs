@@ -21,6 +21,12 @@ namespace _4330Project.Controllers
             return View(resources.ToList());
         }
 
+        public ActionResult AddDoc()
+        {
+            var resources = db.Resources.Include(r => r.AspNetUser);
+            return View(resources.ToList());
+        }
+
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
         {
