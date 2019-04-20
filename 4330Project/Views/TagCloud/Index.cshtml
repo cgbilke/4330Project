@@ -1,0 +1,31 @@
+﻿@model  IEnumerable<Sparc.TagCloud.TagCloudTag>
+@{
+                /**/
+
+                ViewBag.Title = "Word Cloud";
+}
+<link href="@Url.Content("~/Content/tag_cloud.css")" rel="stylesheet" type="text/css" />
+
+<h2>Word Cloud</h2>
+<div class="tag-cloud">
+    @foreach (var tag in Model)
+    {
+        <span class="tag kind-@tag.Category">@tag.Text</span>
+    }
+</div>
+<script type="text/javascript">
+    /*
+        This is not necessary, but gives the tag-cloud a nice fade-in effect.
+      */
+    $(document).ready(function onPageLoad() {
+        var animatedProperties = {
+            paddingLeft: '50px',
+            paddingTop: '75px',
+            paddingBottom: '125px',
+            paddingRight: '150px',
+            opacity: 1
+        };
+
+        $('.tag-cloud').animate(animatedProperties, 500);
+    });
+</script>

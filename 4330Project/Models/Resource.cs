@@ -17,8 +17,27 @@ namespace _4330Project.Models
         public int id { get; set; }
         public string user_id { get; set; }
         public string Doc_Name { get; set; }
-        public string KEYWORD { get; set; }
-        public Nullable<int> TIMES_REPEATED { get; set; }
+        public string Doc_Content { get; set; }
+        public string Keyword1 { get; set; }
+        public string Keyword2 { get; set; }
+        public string Keyword3 { get; set; }
+        public string Keyword4 { get; set; }
+        public string Keyword5 { get; set; }
+        public string Keyword6 { get; set; }
+        public string Keyword7 { get; set; }
+        public string Keyword8 { get; set; }
+        public string Keyword9 { get; set; }
+        public string Keyword10 { get; set; }
+        public Nullable<int> NumOfKey2 { get; set; }
+        public Nullable<int> NumOfKey3 { get; set; }
+        public Nullable<int> NumOfKey4 { get; set; }
+        public Nullable<int> NumOfKey5 { get; set; }
+        public Nullable<int> NumOfKey6 { get; set; }
+        public Nullable<int> NumOfKey7 { get; set; }
+        public Nullable<int> NumOfKey8 { get; set; }
+        public Nullable<int> NumOfKey9 { get; set; }
+        public Nullable<int> NumOfKey10 { get; set; }
+        public Nullable<int> NumOfKey1 { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }
