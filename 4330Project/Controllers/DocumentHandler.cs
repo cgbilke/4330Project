@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Collections.Specialized;
 
 namespace _4330Project.Controllers
 {
@@ -34,14 +36,15 @@ namespace _4330Project.Controllers
             }
 
             string readText = File.ReadAllText(docPath);
+            return readText;
         }
 
         /*This method is passed a string that is our document as an argument where it will parse the document (processing it for all valid strings that aren't
          * stop words (the, and, etc...) and maintaining them in the document. 
          * */
-        private Dictionary parseString(string s, HashSet<string> ignore)
+        private List<KeyValuePair<string, int>> parseString(string s, HashSet<string> ignore)
         {
-            IDictionary<string, int> documentKeywords = new Dictionary<string, int>();
+            Dictionary<string, int> documentKeywords = new Dictionary<string, int>();
 
             char[] sep = "\n\t !@#$%^&*()_+{}|[]\\:\";<>?,./".ToCharArray();
             Regex.Replace(s, @"[^a-zA-Z]+", "");
@@ -61,17 +64,23 @@ namespace _4330Project.Controllers
                     }
                 }
             }
-            sortDictByValue(documentKeywords);
-            return documentKeywords;
+           return sortDictByValue(documentKeywords);
         }
 
         /*Helper method to sort our dictionary after it's processed. Should return all the words sorted by the most common iterations*/
-        private Dictionary sortDictByValue(Dictionary dict)
+        private List<KeyValuePair<string,int>> sortDictByValue(Dictionary<string,int> dict)
         {
             //converts the dictionary to a list, sorts it, then returns the dictionary property
-            dict.ToList();
-            dict.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
-            dict.ToDictionary<string, int>;
+            var dictList = dict.ToList();
+
+            dictList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+            return dictList;
+            //OrderedDictionary retDict = new OrderedDictionary();
+            //foreach (var item in dictList)
+            //{
+            //    retDict.Add(item.Key, item.Value);
+            //}
+            //return retDict;
         }
     }
 }

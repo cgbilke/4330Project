@@ -16,7 +16,9 @@ namespace _4330Project.Models
     {
         public int id { get; set; }
         public string user_id { get; set; }
-        public string title { get; set; }
+        public string Doc_Name { get; set; }
+        public string KEYWORD { get; set; }
+        public Nullable<int> TIMES_REPEATED { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
     }
