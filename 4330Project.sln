@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4330Project", "4330Project\4330Project.csproj", "{16821DE0-7D39-44D5-9F32-69CB65B3ABD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagCloud", "..\..\..\Downloads\Sparc.TagCloud-master (1)\Sparc.TagCloud-master\TagCloud\TagCloud.csproj", "{78939909-DFC3-463F-9B5D-515C57D93BEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{16821DE0-7D39-44D5-9F32-69CB65B3ABD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16821DE0-7D39-44D5-9F32-69CB65B3ABD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16821DE0-7D39-44D5-9F32-69CB65B3ABD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78939909-DFC3-463F-9B5D-515C57D93BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78939909-DFC3-463F-9B5D-515C57D93BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78939909-DFC3-463F-9B5D-515C57D93BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78939909-DFC3-463F-9B5D-515C57D93BEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

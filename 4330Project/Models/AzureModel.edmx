@@ -96,8 +96,27 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="Doc_Name" Type="varchar" MaxLength="255" />
-          <Property Name="KEYWORD" Type="varchar" MaxLength="255" />
-          <Property Name="TIMES_REPEATED" Type="int" />
+          <Property Name="Doc_Content" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword1" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword2" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword3" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword4" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword5" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword6" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword7" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword8" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword9" Type="varchar" MaxLength="255" />
+          <Property Name="Keyword10" Type="varchar" MaxLength="255" />
+          <Property Name="NumOfKey2" Type="int" />
+          <Property Name="NumOfKey3" Type="int" />
+          <Property Name="NumOfKey4" Type="int" />
+          <Property Name="NumOfKey5" Type="int" />
+          <Property Name="NumOfKey6" Type="int" />
+          <Property Name="NumOfKey7" Type="int" />
+          <Property Name="NumOfKey8" Type="int" />
+          <Property Name="NumOfKey9" Type="int" />
+          <Property Name="NumOfKey10" Type="int" />
+          <Property Name="NumOfKey1" Type="int" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -350,8 +369,27 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="Doc_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="KEYWORD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="TIMES_REPEATED" Type="Int32" />
+          <Property Name="Doc_Content" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword3" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword4" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword5" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword6" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword7" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword8" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword9" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword10" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NumOfKey2" Type="Int32" />
+          <Property Name="NumOfKey3" Type="Int32" />
+          <Property Name="NumOfKey4" Type="Int32" />
+          <Property Name="NumOfKey5" Type="Int32" />
+          <Property Name="NumOfKey6" Type="Int32" />
+          <Property Name="NumOfKey7" Type="Int32" />
+          <Property Name="NumOfKey8" Type="Int32" />
+          <Property Name="NumOfKey9" Type="Int32" />
+          <Property Name="NumOfKey10" Type="Int32" />
+          <Property Name="NumOfKey1" Type="Int32" />
           <NavigationProperty Name="AspNetUser" Relationship="DatabaseModel.FK_Resources_AspNetUsers" FromRole="Resource" ToRole="AspNetUser" />
         </EntityType>
         <Association Name="FK_Resources_AspNetUsers">
@@ -463,8 +501,27 @@
           <EntitySetMapping Name="Resources">
             <EntityTypeMapping TypeName="DatabaseModel.Resource">
               <MappingFragment StoreEntitySet="Resources">
-                <ScalarProperty Name="TIMES_REPEATED" ColumnName="TIMES_REPEATED" />
-                <ScalarProperty Name="KEYWORD" ColumnName="KEYWORD" />
+                <ScalarProperty Name="NumOfKey1" ColumnName="NumOfKey1" />
+                <ScalarProperty Name="NumOfKey10" ColumnName="NumOfKey10" />
+                <ScalarProperty Name="NumOfKey9" ColumnName="NumOfKey9" />
+                <ScalarProperty Name="NumOfKey8" ColumnName="NumOfKey8" />
+                <ScalarProperty Name="NumOfKey7" ColumnName="NumOfKey7" />
+                <ScalarProperty Name="NumOfKey6" ColumnName="NumOfKey6" />
+                <ScalarProperty Name="NumOfKey5" ColumnName="NumOfKey5" />
+                <ScalarProperty Name="NumOfKey4" ColumnName="NumOfKey4" />
+                <ScalarProperty Name="NumOfKey3" ColumnName="NumOfKey3" />
+                <ScalarProperty Name="NumOfKey2" ColumnName="NumOfKey2" />
+                <ScalarProperty Name="Keyword10" ColumnName="Keyword10" />
+                <ScalarProperty Name="Keyword9" ColumnName="Keyword9" />
+                <ScalarProperty Name="Keyword8" ColumnName="Keyword8" />
+                <ScalarProperty Name="Keyword7" ColumnName="Keyword7" />
+                <ScalarProperty Name="Keyword6" ColumnName="Keyword6" />
+                <ScalarProperty Name="Keyword5" ColumnName="Keyword5" />
+                <ScalarProperty Name="Keyword4" ColumnName="Keyword4" />
+                <ScalarProperty Name="Keyword3" ColumnName="Keyword3" />
+                <ScalarProperty Name="Keyword2" ColumnName="Keyword2" />
+                <ScalarProperty Name="Keyword1" ColumnName="Keyword1" />
+                <ScalarProperty Name="Doc_Content" ColumnName="Doc_Content" />
                 <ScalarProperty Name="Doc_Name" ColumnName="Doc_Name" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="id" ColumnName="id" />
