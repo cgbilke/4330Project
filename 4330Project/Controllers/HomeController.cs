@@ -26,5 +26,12 @@ namespace _4330Project.Controllers
 
             return View();
         }
+
+        public ActionResult AddDoc()
+        {
+            ViewBag.Message = "Your add documents page.";
+
+            return View();
+        }
     }
 }
