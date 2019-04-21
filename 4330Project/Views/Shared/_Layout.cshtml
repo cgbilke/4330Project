@@ -6,7 +6,6 @@
     <title>Smith Consulting Inc.</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
@@ -23,8 +22,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Search Documents", "Search", "Resources")</li>
-                    <li>@Html.ActionLink("Add Documents", "AddDoc", "Resources")</li>
+                    <li>@Html.ActionLink("Search Documents", "Search", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -36,111 +34,8 @@
    
     </div>
 
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    
-    
-    <style type="text/css">
-
-        /* Background Color*/
-        body {
-            background: #333;
-            color: #fff;
-        }
-
-        /* Links */
-        a,
-        a:focus,
-        a:hover {
-            color: #fff;
-        }
-
-
-        .vertical-center {
-            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-            min-height: 100vh; /* These two lines are counted as one :-)       */
-            display: flex;
-            align-items: center;
-        }
-
-        /* Custom default button */
-        .btn-secondary,
-        .btn-secondary:hover,
-        .btn-secondary:focus {
-            color: #fff;
-            text-shadow: none; /* Prevent inheritance from `body` */
-            background-color: #515151;
-            border: .05rem solid #515151;
-        }
-
-        
-
-        .tag-cloud {
-            padding: 100px;
-            text-align: center;
-            opacity: 0;
-        }
-
-        .tag {
-            display: inline-block;
-            vertical-align: middle;
-            line-height: .75em;
-            margin: 0 .2em;
-        }
-
-            .tag.kind-0 {
-                color: #E4BB37;
-                text-transform: lowercase;
-                font-size: 5em;
-            }
-
-            .tag.kind-1 {
-                color: #E68D3A;
-                font-size: 3em;
-            }
-
-            .tag.kind-2 {
-                color: #CA5C00;
-                font-size: 2.5em;
-            }
-
-            .tag.kind-3 {
-                color: #38879C;
-                font-size: 2.25em;
-            }
-
-            .tag.kind-4 {
-                color: #003F6E;
-                font-size: 2em;
-            }
-
-            .tag.kind-5 {
-                color: #DDD;
-                font-size: 1.75em;
-            }
-
-            .tag.kind-6 {
-                color: #E4BB37;
-                font-size: 1.5em;
-            }
-
-            .tag.kind-7 {
-                color: #38879C;
-                font-size: 1.25em;
-            }
-
-            .tag.kind-8 {
-                color: #CA5C00;
-                font-size: 1em;
-            }
-
-            .tag.kind-9 {
-                color: #E5E5E5;
-                font-size: .8em;
-            }
-
-    </style>
 </body>
-
 </html>
-
