@@ -21,6 +21,12 @@ namespace _4330Project.Controllers
             return View(resources.ToList());
         }
 
+        public ActionResult AddDoc()
+        {
+            var resources = db.Resources.Include(r => r.AspNetUser);
+            return View(resources.ToList());
+        }
+
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
         {
@@ -48,7 +54,7 @@ namespace _4330Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,user_id,title")] Resource resource)
+        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1")] Resource resource)
         {
             if (ModelState.IsValid)
             {

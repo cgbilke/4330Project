@@ -27,7 +27,7 @@ namespace _4330Project.Controllers
             byte[] uploadedFile = new byte[model.File.InputStream.Length];
             model.File.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
 
-            // now you could pass the byte array to your model and store wherever 
+            // now you could pass the byte array to your model and store wherever
             // you intended to store it
 
             return Content("File has been uploaded.");
@@ -46,6 +46,12 @@ namespace _4330Project.Controllers
 
             return View();
         }
-        
+
+        public ActionResult AddDoc()
+        {
+            ViewBag.Message = "Your add documents page.";
+
+            return View();
+        }
     }
 }
