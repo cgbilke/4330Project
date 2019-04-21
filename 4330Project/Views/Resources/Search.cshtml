@@ -13,7 +13,11 @@
 <label> Keyword 3: <input type="text" id="keyword3"> </label> 
 <label> Keyword 4: <input type="text" id="keyword4"> </label> 
 
-<button class="btn btn-lg btn-secondary" onclick="KeywordSearch()">Search</button>
+<button class="btn btn-lg btn-secondary">
+    @Html.ActionLink("Search", "Results")
+    </button>
+
+
 <style type="text/css">
 
     /* Background Color*/
