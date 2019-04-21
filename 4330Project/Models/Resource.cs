@@ -17,7 +17,6 @@ namespace _4330Project.Models
         public int id { get; set; }
         public string user_id { get; set; }
         public string Doc_Name { get; set; }
-        public string Doc_Content { get; set; }
         public string Keyword1 { get; set; }
         public string Keyword2 { get; set; }
         public string Keyword3 { get; set; }

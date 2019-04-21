@@ -15,7 +15,7 @@
         <AssociationConnector Association="DatabaseModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="DatabaseModel.AspNetUserRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DatabaseModel.Resource" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="DatabaseModel.Resource" Width="1.5" PointX="5.25" PointY="6.875" />
         <AssociationConnector Association="DatabaseModel.FK_Resources_AspNetUsers" />
       </Diagram>
     </edmx:Diagrams>

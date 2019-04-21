@@ -54,7 +54,7 @@ namespace _4330Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,user_id,title")] Resource resource)
+        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1")] Resource resource)
         {
             if (ModelState.IsValid)
             {
