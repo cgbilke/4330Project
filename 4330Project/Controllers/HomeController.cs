@@ -13,9 +13,9 @@ namespace _4330Project.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Search()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your Search Page";
 
             return View();
         }
