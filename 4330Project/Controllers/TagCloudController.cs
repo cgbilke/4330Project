@@ -25,6 +25,7 @@ namespace _4330Project.Controllers
                 .ComputeTagCloud(phrases)
                 .Shuffle();
             return View(model);
+            //return View();
         }
 
         // GET: TagCloud/Details/5
