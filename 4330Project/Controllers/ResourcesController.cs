@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.IO;
 using System.Web.Mvc;
+using Microsoft.Office.Interop.Word;
 using _4330Project.Models;
 
 namespace _4330Project.Controllers
@@ -71,13 +72,21 @@ namespace _4330Project.Controllers
         {
             if (ModelState.IsValid)
             {
+
+              
+                var _Doc_Path = SaveDoc(resource.Doc);
+
+                string words = DocumentHandler.convertDocToString(_Doc_Path);
+                var wordsParsed = DocumentHandler.parseString(words, DocumentHandler.stopWords);
+
                 var uploadFile = new Resource()
                 {
                     id = resource.id,
                     user_id = resource.user_id,
                     Doc_Name = resource.Doc_Name,
-                    Keyword1 = resource.Keyword1,
-                    Doc_Path = SaveDoc(resource.Doc)
+                    Keyword1 = wordsParsed[0].Key,
+                    NumOfKey1 = wordsParsed[0].Value,
+                    Doc_Path = _Doc_Path
                 };
                 db.Resources.Add(uploadFile);
                 db.SaveChanges();
