@@ -5,14 +5,13 @@ using System.Web;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Collections.Specialized;
-using Microsoft.Office.Interop.Word;
 
 namespace _4330Project.Controllers
 {
     public class DocumentHandler
     {
         //this is a HashSet of all our available stopwords to remove from the document
-       public static HashSet<string> stopWords = new HashSet<string>() { "a", "about", "above", "after", "again", "against", "all", "am",
+        HashSet<string> stopWords = new HashSet<string>() { "a", "about", "above", "after", "again", "against", "all", "am",
                 "an", "and", "any", "are", "as", "at", "be", "because", "been", "before", "being", "below", "been",
                 "before", "being", "below", "between", "both", "but", "by", "could", "did", "do", "does", "doing", "down",
                 "during", "each", "few", "for", "from", "further", "had", "has", "have", "having", "he", "he'd", "he'll",
@@ -28,7 +27,7 @@ namespace _4330Project.Controllers
 
         /*Converts the contents of the document given as a string to the documents
          * location and then converted the document into a single string to be parsed/cleaned up*/ 
-        public static string convertDocToString(string docPath) { 
+        private string convertDocToString(string docPath) { 
             //we're going to read the contents of a file. Because of Azure stuff, I'm unsure of how to get the proper document pathing. 
             if (!File.Exists(docPath))
             {
@@ -36,28 +35,14 @@ namespace _4330Project.Controllers
                 throw new System.Exception("File not Found.");
             }
 
-            //string readText = File.ReadAllText(docPath);
-            string readText = "";
-
-            Application app = new Application();
-
-
-            Document doc = app.Documents.Open(docPath);
-
-            foreach (Paragraph objParagraph in doc.Paragraphs)
-                readText+=(objParagraph.Range.Text.Trim() + " ");
-
-            ((_Document)doc).Close();
-            ((_Application)app).Quit();
-
-
+            string readText = File.ReadAllText(docPath);
             return readText;
         }
 
         /*This method is passed a string that is our document as an argument where it will parse the document (processing it for all valid strings that aren't
          * stop words (the, and, etc...) and maintaining them in the document. 
          * */
-        public static List<KeyValuePair<string, int>> parseString(string s, HashSet<string> ignore)
+        private List<KeyValuePair<string, int>> parseString(string s, HashSet<string> ignore)
         {
             Dictionary<string, int> documentKeywords = new Dictionary<string, int>();
 
@@ -83,12 +68,12 @@ namespace _4330Project.Controllers
         }
 
         /*Helper method to sort our dictionary after it's processed. Should return all the words sorted by the most common iterations*/
-        private static List<KeyValuePair<string,int>> sortDictByValue(Dictionary<string,int> dict)
+        private List<KeyValuePair<string,int>> sortDictByValue(Dictionary<string,int> dict)
         {
             //converts the dictionary to a list, sorts it, then returns the dictionary property
             var dictList = dict.ToList();
 
-            dictList.Sort((pair1, pair2) => pair2.Value.CompareTo(pair1.Value));
+            dictList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
             return dictList;
             //OrderedDictionary retDict = new OrderedDictionary();
             //foreach (var item in dictList)

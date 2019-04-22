@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -14,7 +13,7 @@ namespace _4330Project.Models
         public bool TwoFactor { get; set; }
         public bool BrowserRemembered { get; set; }
     }
-    
+
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
@@ -84,10 +83,4 @@ namespace _4330Project.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
-
-    /*public class UploadFileViewModel
-    {
-        [Required]
-        public HttpPostedFileBase File { get; set; }
-    }*/
 }

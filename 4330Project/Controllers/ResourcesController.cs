@@ -5,9 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.IO;
 using System.Web.Mvc;
-using Microsoft.Office.Interop.Word;
 using _4330Project.Models;
 
 namespace _4330Project.Controllers
@@ -23,42 +21,20 @@ namespace _4330Project.Controllers
             return View(resources.ToList());
         }
 
-        public ActionResult ResourceSearch()
-        {
-            var resources = db.Resources.Include(r => r.AspNetUser);
-            return View(resources.ToList());
-        }
-        public ActionResult DocumentTable()
-        {
-            var resources = db.Resources.Include(r => r.AspNetUser);
-            return View(resources.ToList());
-        }
-
         public ActionResult AddDoc()
         {
             var resources = db.Resources.Include(r => r.AspNetUser);
             return View(resources.ToList());
         }
-        //public ActionResult Search()
-        //{
-        //    var resources = db.Resources.Include(r => r.AspNetUser);
-        //    return View(resources.ToList());
-        //}
-        //public ActionResult Results()
-        //{
-        //    var resources = db.Resources.Include(r => r.AspNetUser);
-        //    return View(resources.ToList());
-        //}
-        private string SaveDoc(HttpPostedFileBase file)
+        public ActionResult Search()
         {
-            if (file.ContentLength > 0)
-            {
-                var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
-                file.SaveAs(path);
-                return path;
-            }
-            return string.Empty;
+            var resources = db.Resources.Include(r => r.AspNetUser);
+            return View(resources.ToList());
+        }
+        public ActionResult Results()
+        {
+            var resources = db.Resources.Include(r => r.AspNetUser);
+            return View(resources.ToList());
         }
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
@@ -87,50 +63,11 @@ namespace _4330Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1,Doc,Doc_Path")] Resource resource)
+        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1")] Resource resource)
         {
             if (ModelState.IsValid)
             {
-
-              
-                var _Doc_Path = SaveDoc(resource.Doc);
-
-                string words = DocumentHandler.convertDocToString(_Doc_Path);
-                var wordsParsed = DocumentHandler.parseString(words, DocumentHandler.stopWords);
-
-                var link = "https://4330webapp.azurewebsites.net/TagCloud/Index?resourceId=";
-                //TODO make all 10 (they are off by one)
-                var uploadFile = new Resource()
-                {
-                    id = resource.id,
-                    user_id = resource.user_id,
-                    Doc_Name = resource.Doc_Name,
-                    Keyword1 = wordsParsed[0].Key,
-                    NumOfKey1 = wordsParsed[0].Value,
-                    Keyword2 = wordsParsed[1].Key,
-                    NumOfKey2 = wordsParsed[1].Value,
-                    Keyword3 = wordsParsed[2].Key,
-                    NumOfKey3 = wordsParsed[2].Value,
-                    Keyword4 = wordsParsed[3].Key,
-                    NumOfKey4 = wordsParsed[3].Value,
-                    Keyword5 = wordsParsed[4].Key,
-                    NumOfKey5 = wordsParsed[4].Value,
-                    Keyword6 = wordsParsed[5].Key,
-                    NumOfKey6 = wordsParsed[5].Value,
-                    Keyword7 = wordsParsed[6].Key,
-                    NumOfKey7 = wordsParsed[6].Value,
-                    Keyword8 = wordsParsed[7].Key,
-                    NumOfKey8 = wordsParsed[7].Value,
-                    Keyword9 = wordsParsed[8].Key,
-                    NumOfKey9 = wordsParsed[8].Value,
-                    Keyword10 = wordsParsed[9].Key,
-                    NumOfKey10 = wordsParsed[9].Value,
-                    path = _Doc_Path,
-                    WordCloudLink = link 
-                    //resource.id
-
-                };
-                db.Resources.Add(uploadFile);
+                db.Resources.Add(resource);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

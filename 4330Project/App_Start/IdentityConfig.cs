@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Configuration;
-using System.Net.Mail;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -21,43 +19,7 @@ namespace _4330Project
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
-            // Credentials:
-            var credentialUserName = "lisahah2@gmail.com";
-            var sentFrom = "lisahah2@gmail.com";
-            var pwd = "jovvcayslkcimlue";
-
-            // Configure the client:
-            SmtpClient client =
-                new SmtpClient("smtp.gmail.com");
-
-            client.Port = 587;
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.UseDefaultCredentials = false;
-
-            // Create the credentials:
-            System.Net.NetworkCredential credentials =
-                new System.Net.NetworkCredential(credentialUserName, pwd, "gmail.com");
-
-            client.EnableSsl = true;
-            client.Credentials = credentials;
-
-            // Create the message:
-            var mail =
-                new MailMessage(sentFrom, message.Destination);
-
-            mail.Subject = message.Subject;
-            mail.Body = message.Body;
-            
-            /*var mail = new MailMessage();
-            mail.Body = message.Body;
-            mail.From = new MailAddress(sentFrom);
-            mail.Subject = message.Subject;
-            mail.CC.Add(new MailAddress(message.Destination));*/
-
-            // Send:
-            return client.SendMailAsync(mail);
-
-            //return Task.FromResult(0);
+            return Task.FromResult(0);
         }
     }
 
@@ -105,7 +67,7 @@ namespace _4330Project
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            /*manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<ApplicationUser>
             {
                 MessageFormat = "Your security code is {0}"
             });
@@ -113,7 +75,7 @@ namespace _4330Project
             {
                 Subject = "Security Code",
                 BodyFormat = "Your security code is {0}"
-            });*/
+            });
             manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
             var dataProtectionProvider = options.DataProtectionProvider;
