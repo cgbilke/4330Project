@@ -118,7 +118,9 @@ namespace _4330Project.Controllers
                     Keyword10 = wordsParsed[9].Key,
                     NumOfKey10 = wordsParsed[9].Value,
                     path = _Doc_Path,
-                    WordCloudLink = link + resource.id
+                    WordCloudLink = link 
+                    //resource.id
+
                 };
                 db.Resources.Add(uploadFile);
                 db.SaveChanges();

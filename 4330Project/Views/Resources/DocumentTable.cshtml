@@ -4,13 +4,19 @@
     ViewBag.Title = "DocumentTable";
 }
 
-<h2>Add or Delete Documents</h2>
+<h2>Add/Delete Documents</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+
+        </th>
+        <th>
+
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Doc_Name)
         </th>
@@ -60,11 +66,24 @@
     {
         <tr>
             <td>
+
+
+
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.id })*@
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+
+
+            </td>
+            <td>
+
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Doc_Name)
             </td>
             <td>
                 @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
-                <a href=@item.WordCloudLink>Link</a>
+                <a href=@item.WordCloudLink+@item.id>Link</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Keyword1)
@@ -102,17 +121,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.AspNetUser.Email)
             </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.id })
-                @if (User.Identity.GetUserId() == item.AspNetUser.Id)
-                {
-                    @:|
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
-                    @:|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                }
-
-            </td>
+            
         </tr>
     }
 
