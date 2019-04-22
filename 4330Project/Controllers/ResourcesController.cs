@@ -60,11 +60,6 @@ namespace _4330Project.Controllers
             }
             return string.Empty;
         }
-        //public ActionResult Search()
-        //{
-    
-        //    return View();
-        //}
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
         {
