@@ -27,6 +27,12 @@ namespace _4330Project.Controllers
             return View(resources.ToList());
         }
 
+        public ActionResult Search()
+        {
+    
+            return View();
+        }
+
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
         {
