@@ -1,0 +1,125 @@
+﻿@model IEnumerable<_4330Project.Models.Resource>
+@using Microsoft.AspNet.Identity;
+@{
+    ViewBag.Title = "DocumentTable";
+}
+
+<h2>DocumentTable</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Doc_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WordCloudLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword7)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword8)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword9)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keyword10)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Doc_Name)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
+                <a href=@item.WordCloudLink>Link</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keyword10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.path)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id })
+                @if (User.Identity.GetUserId() == item.AspNetUser.Id)
+                {
+                    @:|
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                    @:|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
+<style>
+    .dont-break-out {
+        /* These are technically the same, but use both */
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+</style>

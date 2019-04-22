@@ -28,6 +28,11 @@ namespace _4330Project.Controllers
             var resources = db.Resources.Include(r => r.AspNetUser);
             return View(resources.ToList());
         }
+        public ActionResult DocumentTable()
+        {
+            var resources = db.Resources.Include(r => r.AspNetUser);
+            return View(resources.ToList());
+        }
 
         public ActionResult AddDoc()
         {
@@ -85,6 +90,7 @@ namespace _4330Project.Controllers
                 string words = DocumentHandler.convertDocToString(_Doc_Path);
                 var wordsParsed = DocumentHandler.parseString(words, DocumentHandler.stopWords);
 
+                var link = "https://4330webapp.azurewebsites.net/TagCloud/Index?resourceId=";
                 //TODO make all 10 (they are off by one)
                 var uploadFile = new Resource()
                 {
@@ -112,7 +118,7 @@ namespace _4330Project.Controllers
                     Keyword10 = wordsParsed[9].Key,
                     NumOfKey10 = wordsParsed[9].Value,
                     path = _Doc_Path,
-                    WordCloudLink = "4330webapp.azurewebsites.net/TagCloud/Index?resourceId="+resource.id
+                    WordCloudLink = link + resource.id
                 };
                 db.Resources.Add(uploadFile);
                 db.SaveChanges();
