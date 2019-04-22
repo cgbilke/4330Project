@@ -369,8 +369,12 @@
     <Content Include="Views\TagCloud\Edit.cshtml" />
     <Content Include="Views\TagCloud\Index.cshtml" />
     <Content Include="Views\Resources\AddDoc.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\Resources\Results.cshtml" />
+=======
     <Content Include="Views\Resources\ResourceSearch.cshtml" />
     <Content Include="Views\Resources\DocumentTable.cshtml" />
+>>>>>>> Claire
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
