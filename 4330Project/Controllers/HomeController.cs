@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using _4330Project.Models;
 
 namespace _4330Project.Controllers
 {
@@ -10,10 +11,30 @@ namespace _4330Project.Controllers
     {
         public ActionResult Index()
         {
+            //var model = new UploadFileViewModel();
+            //return View(model);
             return View();
         }
 
         public ActionResult Search()
+        /*[HttpPost]
+        public ActionResult Index(UploadFileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            byte[] uploadedFile = new byte[model.File.InputStream.Length];
+            model.File.InputStream.Read(uploadedFile, 0, uploadedFile.Length);
+
+            // now you could pass the byte array to your model and store wherever
+            // you intended to store it
+
+            return Content("File has been uploaded.");
+        }*/
+
+        // public ActionResult About()
         {
             ViewBag.Message = "Your Search Page";
 

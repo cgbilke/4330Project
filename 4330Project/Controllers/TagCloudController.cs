@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using _4330Project.Models;
 using Sparc.TagCloud;
+//using Sparc.TagCloud;
 
 namespace _4330Project.Controllers
 {
@@ -49,7 +50,7 @@ namespace _4330Project.Controllers
             }
             List<string> phrases = new List<string>();
 
-            //make all the keys 1-10
+            //TODO make all the keys 1-10
             if(resources.NumOfKey1 != null)
             {
                 KeywordClass k1 = new KeywordClass((int)resources.NumOfKey1, resources.Keyword1);
@@ -61,7 +62,55 @@ namespace _4330Project.Controllers
                 KeywordClass k2 = new KeywordClass((int)resources.NumOfKey2, resources.Keyword2);
                 phrases.AddRange(k2.ToList());
             }
-          
+
+            if (resources.NumOfKey3 != null)
+            {
+                KeywordClass k3 = new KeywordClass((int)resources.NumOfKey3, resources.Keyword3);
+                phrases.AddRange(k3.ToList());
+            }
+
+            if (resources.NumOfKey4 != null)
+            {
+                KeywordClass k4 = new KeywordClass((int)resources.NumOfKey4, resources.Keyword4);
+                phrases.AddRange(k4.ToList());
+            }
+
+            if (resources.NumOfKey5 != null)
+            {
+                KeywordClass k5 = new KeywordClass((int)resources.NumOfKey5, resources.Keyword5);
+                phrases.AddRange(k5.ToList());
+            }
+
+            if (resources.NumOfKey6 != null)
+            {
+                KeywordClass k6 = new KeywordClass((int)resources.NumOfKey6, resources.Keyword6);
+                phrases.AddRange(k6.ToList());
+            }
+
+            if (resources.NumOfKey7 != null)
+            {
+                KeywordClass k7 = new KeywordClass((int)resources.NumOfKey7, resources.Keyword7);
+                phrases.AddRange(k7.ToList());
+            }
+
+            if (resources.NumOfKey8 != null)
+            {
+                KeywordClass k8 = new KeywordClass((int)resources.NumOfKey8, resources.Keyword8);
+                phrases.AddRange(k8.ToList());
+            }
+
+            if (resources.NumOfKey9 != null)
+            {
+                KeywordClass k9 = new KeywordClass((int)resources.NumOfKey9, resources.Keyword9);
+                phrases.AddRange(k9.ToList());
+            }
+
+            if (resources.NumOfKey10 != null)
+            {
+                KeywordClass k10 = new KeywordClass((int)resources.NumOfKey10, resources.Keyword10);
+                phrases.AddRange(k10.ToList());
+            }
+
 
 
             var model = new TagCloudAnalyzer()
