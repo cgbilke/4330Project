@@ -116,6 +116,7 @@
           <Property Name="NumOfKey9" Type="int" />
           <Property Name="NumOfKey10" Type="int" />
           <Property Name="NumOfKey1" Type="int" />
+          <Property Name="path" Type="text" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
@@ -389,6 +390,7 @@
           <Property Name="NumOfKey10" Type="Int32" />
           <Property Name="NumOfKey1" Type="Int32" />
           <NavigationProperty Name="AspNetUser" Relationship="DatabaseModel.FK_Resources_AspNetUsers" FromRole="Resource" ToRole="AspNetUser" />
+          <Property Name="path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Resources_AspNetUsers">
           <End Type="DatabaseModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
@@ -499,6 +501,7 @@
           <EntitySetMapping Name="Resources">
             <EntityTypeMapping TypeName="DatabaseModel.Resource">
               <MappingFragment StoreEntitySet="Resources">
+                <ScalarProperty Name="path" ColumnName="path" />
                 <ScalarProperty Name="NumOfKey1" ColumnName="NumOfKey1" />
                 <ScalarProperty Name="NumOfKey10" ColumnName="NumOfKey10" />
                 <ScalarProperty Name="NumOfKey9" ColumnName="NumOfKey9" />

@@ -6,51 +6,107 @@
 
 <h2>Add Document</h2>
 
+@*<!DOCTYPE html>
+<html>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>Resource</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.user_id, "user_id", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+<head>
+    <meta name="viewport" content="width=device-width" />
+   
+    <script src="@Url.Content(" ~/Scripts/jquery-1.10.2.min.js ")" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#Upload').prop('disabled', true);
+            $("#Choose File").change(function () {
+                // Get uploaded file extension
+                var extension = $(this).val().split('.').pop().toLowerCase();
+                // Create array with the files extensions that we wish to upload
+                var validFileExtensions = ['doc', 'docx', 'txt'];
+                //Check file extension in the array. If -1, then the file extension is not in the list.
+                if ($.inArray(extension, validFileExtensions) == -1) {
+                    alert("You can only upload 'doc', 'docx', or 'txt' files.")
+                    // Clear fileupload control selected file
+                    $(this).replaceWith($(this).val('').clone(true));
+                    //Disable Submit Button
+                    $('#Upload').prop('disabled', true);
+                } else {
+                    //Enable Submit Button
+                    $('#Upload').prop('disabled', false);
+                }
+            });
+            /*$("#Upload").click(function () {
+                if ($("#FirstName").val() = null || $("#LastName").val() || $("#Skills").val() || $("#EmailID").val() || $("#ContactNo").val() || $("#Resume").val()) {
+                    alert("Please fill out required fields(*)");
+                    return false;
+                }
+                return true;
+            });*/
+        });
+    </script>
+</head>
+
+<body>*@
+    @using (Html.BeginForm("Create", "Resources", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+         <div class="form-horizontal">
+        <h4>Resource</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.user_id, "user_id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("user_id", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.user_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Doc_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Doc_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Doc_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keyword1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keyword1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Keyword1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Doc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Doc, new { type = "file" })
+                @Html.ValidationMessageFor(model => model.Doc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="Upload" value="Upload" class="btn btn-default" />
+            </div>
         </div>
     </div>
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Doc_Name, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Doc_Name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Doc_Name, "", new { @class = "text-danger" })
-        </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
+@*</body>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Keyword1, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Keyword1, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Keyword1, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</html>*@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
+
+
+
+
+
