@@ -24,7 +24,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Search Documents", "Search", "Resources")</li>
-                    <li>@Html.ActionLink("Add Documents", "AddDoc", "Resources")</li>
+                    @if(User.IsInRole("Database Administrator"))
+                    {
+                        <li>@Html.ActionLink("Add Documents", "AddDoc", "Resources")</li>
+                    }
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

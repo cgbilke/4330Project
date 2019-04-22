@@ -13,11 +13,6 @@
         <p class="lead"> We have created an online system to help analyze documents for classification purposes and to meet the technical publication needs of our clients. </p>
         <p class="lead">
             <a href="Search" class="btn btn-lg btn-secondary">Check It Out!</a>
-            @if(Roles.IsUserInRole(User.Identity.GetUserName(), "Database Administrator"))
-            {
-                <a href="About" class="btn btn-lg btn-secondary">Add Document</a>
-                <a href="About" class="btn btn-lg btn-secondary">Remove Document</a>
-            }
         </p>
     </main>
 
