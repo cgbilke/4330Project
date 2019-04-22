@@ -111,7 +111,8 @@ namespace _4330Project.Controllers
                     NumOfKey9 = wordsParsed[8].Value,
                     Keyword10 = wordsParsed[9].Key,
                     NumOfKey10 = wordsParsed[9].Value,
-                    path = _Doc_Path
+                    path = _Doc_Path,
+                    WordCloudLink = "4330webapp.azurewebsites.net/TagCloud/Index?resourceId="+resource.id
                 };
                 db.Resources.Add(uploadFile);
                 db.SaveChanges();
