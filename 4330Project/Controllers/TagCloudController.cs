@@ -16,54 +16,11 @@ namespace _4330Project.Controllers
         private AzureEntities db = new AzureEntities();
 
         // GET: TagCloud
-        private class KeywordClass
-        {
-            int numRepeat;
-            string word;
-
-            public KeywordClass(int numRepeat, string word)
-            {
-                this.numRepeat = numRepeat;
-                this.word = word;
-            }
-            public List<string> ToList()
-            {
-                List<string> ret = new List<string>();
-
-                for (int i = 0; i < numRepeat; i++)
-                {
-                    ret.Add(word);
-                }
-                return ret;
-
-                
-            }
-        }
-        public ActionResult Index(int resourceID)
+        public ActionResult Index(string test)
         {
             //var resources = db.Resources.Include(r => r.AspNetUser);
-            var resources = db.Resources.Where(x => x.id == resourceID).FirstOrDefault();
-            if(resources == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-            }
-            List<string> phrases = new List<string>();
-
-            //make all the keys 1-10
-            if(resources.NumOfKey1 != null)
-            {
-                KeywordClass k1 = new KeywordClass((int)resources.NumOfKey1, resources.Keyword1);
-                phrases.AddRange(k1.ToList());
-            }
-      
-            if(resources.NumOfKey2 != null)
-            {
-                KeywordClass k2 = new KeywordClass((int)resources.NumOfKey2, resources.Keyword2);
-                phrases.AddRange(k2.ToList());
-            }
-          
-
-
+            //return View(resources.ToList());
+            var phrases = new string[] { test };
             var model = new TagCloudAnalyzer()
                 .ComputeTagCloud(phrases)
                 .Shuffle();
