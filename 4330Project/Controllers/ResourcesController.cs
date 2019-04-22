@@ -86,7 +86,7 @@ namespace _4330Project.Controllers
                     Doc_Name = resource.Doc_Name,
                     Keyword1 = wordsParsed[0].Key,
                     NumOfKey1 = wordsParsed[0].Value,
-                    Doc_Path = _Doc_Path
+                    path = _Doc_Path
                 };
                 db.Resources.Add(uploadFile);
                 db.SaveChanges();
