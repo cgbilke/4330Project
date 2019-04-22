@@ -369,6 +369,7 @@
     <Content Include="Views\TagCloud\Edit.cshtml" />
     <Content Include="Views\TagCloud\Index.cshtml" />
     <Content Include="Views\Resources\AddDoc.cshtml" />
+    <Content Include="Views\Resources\ResourceSearch.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
