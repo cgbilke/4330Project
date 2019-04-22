@@ -11,12 +11,12 @@ namespace _4330Project.Controllers
     {
         public ActionResult Index()
         {
-            var model = new UploadFileViewModel();
-            return View(model);
-            //return View();
+            //var model = new UploadFileViewModel();
+            //return View(model);
+            return View();
         }
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult Index(UploadFileViewModel model)
         {
             if (!ModelState.IsValid)
@@ -31,7 +31,7 @@ namespace _4330Project.Controllers
             // you intended to store it
 
             return Content("File has been uploaded.");
-        }
+        }*/
 
         public ActionResult About()
         {

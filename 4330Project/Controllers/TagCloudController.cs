@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using _4330Project.Models;
-using Sparc.TagCloud;
+//using Sparc.TagCloud;
 
 namespace _4330Project.Controllers
 {
@@ -21,11 +21,11 @@ namespace _4330Project.Controllers
             //var resources = db.Resources.Include(r => r.AspNetUser);
             //return View(resources.ToList());
             var phrases = new string[] { test };
-            var model = new TagCloudAnalyzer()
+            /*var model = new TagCloudAnalyzer()
                 .ComputeTagCloud(phrases)
                 .Shuffle();
-            return View(model);
-            //return View();
+            return View(model);*/
+            return View();
         }
 
         // GET: TagCloud/Details/5

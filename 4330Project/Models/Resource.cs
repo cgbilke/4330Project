@@ -10,6 +10,7 @@
 namespace _4330Project.Models
 {
     using System;
+    using System.Web;
     using System.Collections.Generic;
     
     public partial class Resource
@@ -39,5 +40,7 @@ namespace _4330Project.Models
         public Nullable<int> NumOfKey1 { get; set; }
     
         public virtual AspNetUser AspNetUser { get; set; }
+        public HttpPostedFileBase Doc { get;  set; }
+        public string Doc_Path { get; set; }
     }
 }

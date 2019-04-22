@@ -85,9 +85,9 @@ namespace _4330Project.Models
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
 
-    public class UploadFileViewModel
+    /*public class UploadFileViewModel
     {
         [Required]
         public HttpPostedFileBase File { get; set; }
-    }
+    }*/
 }

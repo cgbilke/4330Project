@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.IO;
 using System.Web.Mvc;
 using _4330Project.Models;
 
@@ -25,6 +26,18 @@ namespace _4330Project.Controllers
         {
             var resources = db.Resources.Include(r => r.AspNetUser);
             return View(resources.ToList());
+        }
+
+        private string SaveDoc(HttpPostedFileBase file)
+        {
+            if (file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data"), fileName);
+                file.SaveAs(path);
+                return path;
+            }
+            return string.Empty;
         }
 
         // GET: Resources/Details/5
@@ -54,11 +67,19 @@ namespace _4330Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1")] Resource resource)
+        public ActionResult Create([Bind(Include = "id,user_id,Doc_Name,Keyword1,Doc,Doc_Path")] Resource resource)
         {
             if (ModelState.IsValid)
             {
-                db.Resources.Add(resource);
+                var uploadFile = new Resource()
+                {
+                    id = resource.id,
+                    user_id = resource.user_id,
+                    Doc_Name = resource.Doc_Name,
+                    Keyword1 = resource.Keyword1,
+                    Doc_Path = SaveDoc(resource.Doc)
+                };
+                db.Resources.Add(uploadFile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
