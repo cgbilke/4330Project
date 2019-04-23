@@ -49,10 +49,15 @@
 
     <table class="table">
         <tr>
-            <th>
+            @if (User.IsInRole("Database Administrator"))
+            {
+                <th>
 
-            </th>
+                </th>
+                @*<th>
 
+                </th>*@
+            }
             <th nowrap>
                 Document Name
             </th>
@@ -94,58 +99,63 @@
 
         @foreach (var item in Model)
         {
-            <tbody id="myTable">
+            <tbody id="myTable" >
                 <tr>
-                    <td>
+                    @if (User.IsInRole("Database Administrator"))
+                    { 
+                        <td>
+                         @Html.ActionLink("Delete", "Delete", new { id = item.id })
+
+
+                        </td>
+                        @*<td>
 
 
 
-                        @*@Html.ActionLink("Edit", "Edit", new { id = item.id })*@
-
-                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
-
-
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Doc_Name)
-                    </td>
-                    <td>
-                        @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
-                        <a href=@item.WordCloudLink +@item.id style="color: dodgerblue">Link</a>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword1)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword2)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword3)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword4)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword5)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword6)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword7)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword8)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword9)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Keyword10)
-                    </td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                         </td>*@
+                         
+                    }
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Doc_Name)
+                        </td>
+                        <td>
+                            @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
+                            <a href=@item.WordCloudLink@item.id style="color: dodgerblue">Link</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword3)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword4)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword5)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword6)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword7)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword8)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword9)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keyword10)
+                        </td>
 
 
-                </tr>
+                    </tr>
             </tbody>
 
         }

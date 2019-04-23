@@ -1,5 +1,4 @@
-﻿@model IEnumerable<_4330Project.Models.Resource>
-@using Microsoft.AspNet.Identity;
+﻿@using Microsoft.AspNet.Identity;
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +25,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Search", "Index", "Resources")</li>
+                    <li>@Html.ActionLink("Search", "DocumentTable", "Resources")</li>
                     @if (User.IsInRole("Database Administrator"))
                     {
-                        <li>@Html.ActionLink("Add/Delete", "DocumentTable", "Resources")</li>
+                        <li>@Html.ActionLink("Add Document", "Create", "Resources")</li>
                     }
                     
 

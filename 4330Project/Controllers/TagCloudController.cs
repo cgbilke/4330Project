@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using _4330Project.Models;
 using Sparc.TagCloud;
-//using Sparc.TagCloud;
 
 namespace _4330Project.Controllers
 {
@@ -16,6 +15,11 @@ namespace _4330Project.Controllers
     {
         private AzureEntities db = new AzureEntities();
 
+        public class TagCloudMeta
+        {
+            public System.Collections.Generic.IEnumerable<TagCloudTag> tagcloud;
+            public Resource resources;
+        }
         // GET: TagCloud
         private class KeywordClass
         {
@@ -110,13 +114,20 @@ namespace _4330Project.Controllers
                 KeywordClass k10 = new KeywordClass((int)resources.NumOfKey10, resources.Keyword10);
                 phrases.AddRange(k10.ToList());
             }
+            //here
+            TagCloudMeta objectToReturn = new TagCloudMeta();
 
+            //List<TagCloudTag> model = new TagCloudAnalyzer()
+            //    .ComputeTagCloud(phrases)
+            //    .Shuffle().ToList();
 
+            //objectToReturn.tagcloud = model;
+            objectToReturn.resources = resources;
 
             var model = new TagCloudAnalyzer()
                 .ComputeTagCloud(phrases)
                 .Shuffle();
-            return View(model);
+            return View(model.ToList());
         }
 
         // GET: TagCloud/Details/5
