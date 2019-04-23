@@ -5,6 +5,24 @@
 }
 @if (Request.IsAuthenticated)
 {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!--===============================================================================================-->
     <h2>Add/Delete Documents</h2>
 
     <p>
@@ -19,47 +37,42 @@
 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Doc_Name)
+                Document Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WordCloudLink)
+                Word Cloud
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Keyword1)
+                #1 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword2)
+            <th nowrap>
+                #2 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword3)
+            <th nowrap>
+                #3 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword4)
+            <th nowrap>
+                #4 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword5)
+            <th nowrap>
+                #5 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword6)
+            <th nowrap>
+                #6 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword7)
+            <th nowrap>
+                #7 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword8)
+            <th nowrap>
+                #8 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword9)
+            <th nowrap>
+                #9 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keyword10)
+            <th nowrap>
+                #10 Keyword
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.path)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AspNetUser.Email)
-            </th>
+
             <th></th>
         </tr>
 
@@ -114,22 +127,26 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Keyword10)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.path)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AspNetUser.Email)
-                </td>
+
 
             </tr>
         }
 
     </table>
-    <style>
-        .dont-break-out {
-            /* These are technically the same, but use both */
-            overflow-wrap: break-word;
-            word-wrap: break-word;
-        }
-    </style>
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+    @*<style>
+            .dont-break-out {
+                /* These are technically the same, but use both */
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+            }
+        </style>*@
 }
