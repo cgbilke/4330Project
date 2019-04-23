@@ -39,7 +39,16 @@ namespace _4330Project.Controllers
             var resources = db.Resources.Include(r => r.AspNetUser);
             return View(resources.ToList());
         }
-
+        //public ActionResult Search()
+        //{
+        //    var resources = db.Resources.Include(r => r.AspNetUser);
+        //    return View(resources.ToList());
+        //}
+        //public ActionResult Results()
+        //{
+        //    var resources = db.Resources.Include(r => r.AspNetUser);
+        //    return View(resources.ToList());
+        //}
         private string SaveDoc(HttpPostedFileBase file)
         {
             if (file.ContentLength > 0)
@@ -51,7 +60,11 @@ namespace _4330Project.Controllers
             }
             return string.Empty;
         }
-
+        //public ActionResult Search()
+        //{
+    
+        //    return View();
+        //}
         // GET: Resources/Details/5
         public ActionResult Details(int? id)
         {

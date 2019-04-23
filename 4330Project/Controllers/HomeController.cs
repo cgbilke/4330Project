@@ -16,6 +16,7 @@ namespace _4330Project.Controllers
             return View();
         }
 
+        public ActionResult Search()
         /*[HttpPost]
         public ActionResult Index(UploadFileViewModel model)
         {
@@ -33,9 +34,9 @@ namespace _4330Project.Controllers
             return Content("File has been uploaded.");
         }*/
 
-        public ActionResult About()
+        // public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your Search Page";
 
             return View();
         }
