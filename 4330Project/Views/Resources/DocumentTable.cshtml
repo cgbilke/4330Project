@@ -5,41 +5,58 @@
 }
 @if (Request.IsAuthenticated)
 {
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <!--===============================================================================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#myInput2").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#myInput3").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+            $("#myInput4").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
     <h2>Add/Delete Documents</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
+    <p id="p">
+        @Html.ActionLink("Add Document", "Create")
     </p>
+
+    <input id="myInput" type="text" placeholder="Keyword 1" color:black>
+    <input id="myInput2" type="text" placeholder="Keyword 2" color:black>
+    <input id="myInput3" type="text" placeholder="Keyword 3" color:black>
+    <input id="myInput4" type="text" placeholder="Keyword 4" color:black>
+    <p></p>
+
     <table class="table">
         <tr>
             <th>
 
             </th>
-            <th>
 
-            </th>
-            <th>
+            <th nowrap>
                 Document Name
             </th>
-            <th>
+            <th nowrap>
                 Word Cloud
             </th>
             <th>
@@ -73,80 +90,98 @@
                 #10 Keyword
             </th>
 
-            <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
+            <tbody id="myTable">
+                <tr>
+                    <td>
 
 
 
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.id })*@
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.id })*@
 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-
-
-                </td>
-                <td></td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Doc_Name)
-                </td>
-                <td>
-                    @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
-                    <a href=@item.WordCloudLink +@item.id>Link</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword3)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword4)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword5)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword6)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword7)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword8)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword9)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Keyword10)
-                </td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
 
 
-            </tr>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doc_Name)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.WordCloudLink)*@
+                        <a href=@item.WordCloudLink +@item.id style="color: dodgerblue">Link</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword3)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword4)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword5)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword6)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword7)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword8)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword9)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keyword10)
+                    </td>
+
+
+                </tr>
+            </tbody>
+
+        }
+    </table>
+
+
+    <style>
+        .dont-break-out {
+            /* These are technically the same, but use both */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
-    </table>
-    <!--===============================================================================================-->
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-    <script src="js/main.js"></script>
-    @*<style>
-            .dont-break-out {
-                /* These are technically the same, but use both */
-                overflow-wrap: break-word;
-                word-wrap: break-word;
+        table, th, td {
+            border: 1px solid white;
+        }
+
+        input {
+            color: black;
+        }
+
+
+            input[type=text] {
+                width: 15%;
+                height: 10%;
+                padding: 7px 7px;
+                margin: 1px 8px;
+                display: inline-block;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+               
             }
-        </style>*@
+
+
+        
+   
+    </style>
 }
