@@ -3,8 +3,7 @@
 @{
     ViewBag.Title = "DocumentTable";
 }
-@if (Request.IsAuthenticated)
-{
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script>
@@ -35,11 +34,12 @@
             });
         });
     </script>
-    <h2>Add/Delete Documents</h2>
+    <h2>Search for Documents</h2>
 
-    <p id="p">
+    @*<p id="p">
         @Html.ActionLink("Add Document", "Create")
-    </p>
+    </p>*@
+    <p> </p>
 
     <input id="myInput" type="text" placeholder="Keyword 1" color:black>
     <input id="myInput2" type="text" placeholder="Keyword 2" color:black>
@@ -105,14 +105,9 @@
                     { 
                         <td>
                          @Html.ActionLink("Delete", "Delete", new { id = item.id })
-
-
                         </td>
                         @*<td>
-
-
-
-                            @Html.ActionLink("Edit", "Edit", new { id = item.id })
+                         @Html.ActionLink("Edit", "Edit", new { id = item.id })
                          </td>*@
                          
                     }
@@ -194,4 +189,3 @@
         
    
     </style>
-}
